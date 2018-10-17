@@ -10,28 +10,42 @@ var budgetController = (function(){
 // UI CONTROLLER
 var UIController = (function(){ //private controller
 
-// some code
-
+  return {
+      getInput: function(){
+        return {
+               type: document.querySelector('.add__type').value,
+               description: document.querySelector('.add__description').value,
+               value: document.querySelector('add__value').value
+              };
+           }
+        };
 })();
 
 
 // GLOBAL APP CONTROLER
 var controller = (function(budgetCtrl, UICtrl){ //private controller
 
-  document.querySelector('.add__btn').addEventListener('click',function(){ //Event listener
+  var ctlAddItem = function(){
 
-      // 1. Get field input data
-      // 2. Add the item to the budget controller
-      // 3. Add the item to the UI
-      // 4. Calculate the budget
-      // 5. Display the budget on the UI
 
-  });
+    // 1. Get field input data
+    var input = UICtrl.getInput();
+
+    // 2. Add the item to the budget controller
+    // 3. Add the item to the UI
+    // 4. Calculate the budget
+    // 5. Display the budget on the UI
+
+  }
+
+  document.querySelector('.add__btn').addEventListener('click', ctlAddItem);
 
   document.addEventListener('keypress', function(event){
 
-    console.log(event)
+    if (event.keyCode === 13 || event.wich === 13){
+      ctlAddItem();
 
+    }
   });
 
 
